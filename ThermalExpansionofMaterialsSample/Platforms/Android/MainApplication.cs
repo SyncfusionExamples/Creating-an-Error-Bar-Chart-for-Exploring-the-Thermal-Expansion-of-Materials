@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace ErrorBarBlog;
+namespace ErrorBarSample;
 
 [Application]
 public class MainApplication : MauiApplication

@@ -6,17 +6,17 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
-		<RootNamespace>ErrorBarBlog</RootNamespace>
+		<RootNamespace>ErrorBarSample</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>ErrorBarBlog</ApplicationTitle>
+		<ApplicationTitle>ErrorBarSample</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.errorbarblog</ApplicationId>
-		<ApplicationIdGuid>a58317bd-102e-47d5-bd9f-c757bbd0b0e3</ApplicationIdGuid>
+		<ApplicationId>com.companyname.errorbarsample</ApplicationId>
+		<ApplicationIdGuid>65ea4458-90de-4046-88d3-2d78eb805749</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -48,8 +48,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\High.png" />
-	  <None Remove="Resources\Images\Low.png" />
+	  <None Remove="Resources\Images\high.png" />
+	  <None Remove="Resources\Images\low.png" />
 	</ItemGroup>
 
 	<ItemGroup>

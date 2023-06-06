@@ -1,6 +1,6 @@
 ﻿using Syncfusion.Maui.Core.Hosting;
 
-namespace ErrorBarBlog;
+namespace ErrorBarSample;
 
 public static class MauiProgram
 {
@@ -9,7 +9,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-             .ConfigureSyncfusionCore()
+            .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

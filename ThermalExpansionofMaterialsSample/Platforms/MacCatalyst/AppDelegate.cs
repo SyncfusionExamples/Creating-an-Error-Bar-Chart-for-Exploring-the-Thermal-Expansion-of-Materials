@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace ErrorBarBlog;
+namespace ErrorBarSample;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

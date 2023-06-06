@@ -1,16 +1,11 @@
-﻿using System.Collections.ObjectModel;
-
-namespace ErrorBarBlog;
+﻿namespace ErrorBarSample;
 
 public partial class MainPage : ContentPage
 {
-	
+
 	public MainPage()
 	{
 		InitializeComponent();
-	
-    }
-	
+	}
 }
-
 
