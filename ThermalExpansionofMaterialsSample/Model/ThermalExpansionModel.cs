@@ -19,8 +19,8 @@ namespace ErrorBarSample
             MaterialName = materialName;
             HighErrorValue = highError;
             LowErrorValue = lowError;
-            Coefficient = (lowError + highError) / 2;
-            ErrorValue = (lowError - highError) / 2;
+            Coefficient = (highError + lowError) / 2;
+            ErrorValue = (highError - lowError) / 2;
         }
     }
 }
