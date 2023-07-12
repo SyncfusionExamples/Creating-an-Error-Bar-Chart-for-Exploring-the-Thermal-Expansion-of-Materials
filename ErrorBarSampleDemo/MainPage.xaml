@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:ErrorBarSampleDemo"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="ErrorBarSampleDemo.MainPage">
+
+
+    <ContentPage.BindingContext>
+        <local:ThermalExpansionViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout  Padding="{OnPlatform WinUI='40',MacCatalyst='40'}">
+            <Border StrokeThickness="4"
+        StrokeShape="RoundRectangle 30,30,30,30"
+        Background="#ccfff5"
+        Padding="20"
+        HorizontalOptions="Center">
+                <Border.Stroke>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="Orange"
+                          Offset="0.1" />
+                        <GradientStop Color="Brown"
+                          Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+
+                <chart:SfCartesianChart>
+                    <chart:SfCartesianChart.Title>
+                        <StackLayout>
+                            <Label 
+                               Text="ErrorBar Chart for Exploring the Thermal Expansion of Materials" 
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontAttributes="Bold" 
+                               TextColor="Black" 
+                               FontSize="16"
+                               LineBreakMode="WordWrap"
+                               Padding="0,0,0,0"/>
+                        </StackLayout>
+                    </chart:SfCartesianChart.Title>
+
+
+                    <chart:SfCartesianChart.TooltipBehavior>
+                        <chart:ChartTooltipBehavior/>
+                    </chart:SfCartesianChart.TooltipBehavior>
+
+                    <chart:SfCartesianChart.Resources>
+                        <DataTemplate x:Key="tooltipTemplate1">
+                            <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="5">
+                                <Label Grid.ColumnSpan="3" Text="{Binding Item.MaterialName}"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                                <Image Grid.Row="1" Grid.Column="0" HeightRequest="20" WidthRequest="20" Source="high.png" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="High Error"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="2" Text=":"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="3" Text="{Binding Item.HighErrorValue,StringFormat='{0:0.#}'}"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+                                       
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                                <Image Grid.Row="2" Grid.Column="0" HeightRequest="20" WidthRequest="20" Source="low.png" />
+                                <Label Grid.Row="2" Grid.Column="1" Text="Low Error"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="2" Text=":"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="3" Text="{Binding Item.LowErrorValue,StringFormat='{0:0.#}'}"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </chart:SfCartesianChart.Resources>
+
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis ZoomPosition="0.8"  ShowMajorGridLines="False" LabelPlacement="BetweenTicks">
+                            <chart:CategoryAxis.MajorTickStyle>
+                                <chart:ChartAxisTickStyle  TickSize="0"/>
+                            </chart:CategoryAxis.MajorTickStyle>
+                            <chart:CategoryAxis.AxisLineStyle>
+                                <chart:ChartLineStyle  StrokeWidth="0"/>
+                            </chart:CategoryAxis.AxisLineStyle>
+                        </chart:CategoryAxis>
+                    </chart:SfCartesianChart.XAxes>
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis Maximum="25"  ShowMajorGridLines="False" IsVisible="True" >
+                            <chart:NumericalAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle LabelFormat= "0.#&#186;F"/>
+                            </chart:NumericalAxis.LabelStyle>
+                            <chart:NumericalAxis.AxisLineStyle>
+                                <chart:ChartLineStyle StrokeWidth ="1"
+									  Stroke="Black"/>
+                            </chart:NumericalAxis.AxisLineStyle>
+                            <chart:NumericalAxis.MajorTickStyle>
+                                <chart:ChartAxisTickStyle Stroke="Black"  />
+                            </chart:NumericalAxis.MajorTickStyle>
+                        </chart:NumericalAxis>
+                    </chart:SfCartesianChart.YAxes>
+
+                    <chart:SfCartesianChart.ZoomPanBehavior>
+                        <chart:ChartZoomPanBehavior EnablePanning="True"></chart:ChartZoomPanBehavior>
+                    </chart:SfCartesianChart.ZoomPanBehavior>
+
+                    <!--Initialize the series for chart-->
+                    <chart:ColumnSeries ItemsSource="{Binding ThermalExpansion}"
+                                    XBindingPath="MaterialName" 
+                                    YBindingPath="Coefficient"
+                                    EnableTooltip="True"
+                                    TooltipTemplate="{StaticResource tooltipTemplate1}">
+
+                    </chart:ColumnSeries>
+
+                    <chart:ErrorBarSeries ItemsSource="{Binding ThermalExpansion}"  
+                                          XBindingPath="MaterialName"  
+                                          YBindingPath="Coefficient" 
+                                          Type="Custom"
+                                          Mode="Vertical"
+                                          VerticalErrorPath="ErrorValue">
+                    </chart:ErrorBarSeries>
+                </chart:SfCartesianChart>
+
+            </Border>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
