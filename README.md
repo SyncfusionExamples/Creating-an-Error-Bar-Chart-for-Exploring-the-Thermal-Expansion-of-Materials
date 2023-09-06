@@ -38,6 +38,8 @@ Thermal expansion is a fundamental property of materials that describes their te
 
 ![ThermalExpansionofMaterials](https://github.com/SyncfusionExamples/Creating-an-Error-Bar-Chart-for-Exploring-the-Thermal-Expansion-of-Materials/assets/102796134/99e06809-3c5b-4fff-989a-a3e88db01985)
 
+If you'd like more information or a detailed guide, refer [Exploring Thermal Expansion of Materials using Error bar blog](https://www.syncfusion.com/blogs/post/dotnet-maui-error-bar-chart-visualize-thermal-expansion-materials.aspx).
+
 
 
 
