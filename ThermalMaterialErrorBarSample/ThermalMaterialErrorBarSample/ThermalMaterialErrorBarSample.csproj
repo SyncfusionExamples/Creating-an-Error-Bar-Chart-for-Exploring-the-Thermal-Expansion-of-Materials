@@ -53,7 +53,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Syncfusion.Maui.Charts" Version="*" />
+	  <PackageReference Include="Syncfusion.Maui.Charts" Version="23.1.38" />
 	</ItemGroup>
 
 </Project>
