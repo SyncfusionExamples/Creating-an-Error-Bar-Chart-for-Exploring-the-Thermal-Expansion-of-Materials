@@ -1,9 +1,10 @@
-﻿namespace ThermalMaterialErrorBarSample;
-
-public partial class AppShell : Shell
+﻿namespace ThermalMaterialErrorBarSample
 {
-	public AppShell()
-	{
-		InitializeComponent();
-	}
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+        }
+    }
 }
